@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive project page for A Survey of Audio Reasoning in Multimodal Foundation Models.">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Audio Reasoning Survey">
+  <meta property="og:description" content="An interactive map of Audio-to-Text, Audio-to-Speech, Audio-Visual, and Agentic Audio Reasoning.">
+  <meta property="og:image" content="assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Audio Reasoning Survey</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Audio Reasoning Survey home">
+      <span class="brand-mark" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span>AUDIO REASONING <b>/ SURVEY</b></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#timeline">Timeline</a>
+      <a href="#taxonomy">Taxonomy</a>
+      <a href="#formulations">Paper sections</a>
+      <a href="#evaluations">Evaluation</a>
+      <a href="#community">Community</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="motionToggle" type="button" aria-pressed="false" aria-label="Pause animations">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+      </button>
+      <a class="github-button" id="githubLink" href="#community">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.59.69.49A10 10 0 0 0 12 2Z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <nav class="reading-progress" id="readingProgress" aria-label="Survey reading progress">
+    <div class="progress-meta"><span>PAPER MAP</span><b><i id="progressCurrent">01</i> / 11</b></div>
+    <div class="progress-links">
+      <a class="active" data-progress-link href="#timeline"><span>01</span>Timeline</a>
+      <a data-progress-link href="#taxonomy"><span>02</span>Taxonomy</a>
+      <a data-progress-link href="#formulations"><span>03</span>II · Formulations</a>
+      <a data-progress-link href="#foundations"><span>04</span>III · Foundations</a>
+      <a data-progress-link href="#audio-to-text"><span>05</span>IV · Audio-to-Text</a>
+      <a data-progress-link href="#audio-to-speech"><span>06</span>V · Audio-to-Speech</a>
+      <a data-progress-link href="#audio-visual"><span>07</span>VI · Audio-Visual</a>
+      <a data-progress-link href="#agentic"><span>08</span>VII · Agentic</a>
+      <a data-progress-link href="#evaluations"><span>09</span>VIII · Evaluation</a>
+      <a data-progress-link href="#challenges"><span>10</span>IX · Challenges</a>
+      <a data-progress-link href="#conclusion"><span>11</span>X · Conclusion</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span></span> Living survey · 2023-2026</div>
+        <h1 id="hero-title">A Survey of<br><em>Audio Reasoning</em><br>in Multimodal Foundation Models</h1>
+        <p class="hero-deck">A unified map of how Audio Foundation Models perceive acoustic evidence, reason across time, speak with low latency, combine sound with vision, and act through external tools.</p>
+        <div class="author-line" aria-label="Authors">
+          <span>Zhihan Guo*</span><span>Wenqian Cui*</span><span>Guan-Ting Lin</span><span>Daxin Tan</span><span>Jingyao Li</span><button id="showAuthors" type="button">+7 authors</button>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#timeline">Explore the field <span aria-hidden="true">↘</span></a>
+          <button class="button button-secondary" id="citeButton" type="button">Copy BibTeX</button>
+          <a class="button button-secondary is-hidden" id="paperLink" href="#" target="_blank" rel="noreferrer">Read paper</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Animated audio reasoning overview">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="signal-label signal-label-a">ACOUSTIC EVIDENCE</div>
+        <div class="hero-wave" aria-hidden="true">
+          <span style="--h:26%"></span><span style="--h:54%"></span><span style="--h:82%"></span><span style="--h:43%"></span><span style="--h:95%"></span><span style="--h:67%"></span><span style="--h:36%"></span><span style="--h:76%"></span><span style="--h:48%"></span><span style="--h:88%"></span><span style="--h:58%"></span><span style="--h:28%"></span><span style="--h:70%"></span><span style="--h:45%"></span><span style="--h:84%"></span><span style="--h:32%"></span><span style="--h:64%"></span><span style="--h:92%"></span><span style="--h:50%"></span><span style="--h:24%"></span><span style="--h:74%"></span><span style="--h:40%"></span><span style="--h:87%"></span><span style="--h:55%"></span>
+        </div>
+        <div class="reasoning-orbit orbit-one" aria-hidden="true"><span>PERCEIVE</span></div>
+        <div class="reasoning-orbit orbit-two" aria-hidden="true"><span>GROUND</span></div>
+        <div class="reasoning-core" aria-hidden="true">
+          <b>AFM</b><small>reasoning core</small>
+        </div>
+        <div class="output-trace" aria-hidden="true">
+          <span class="trace-dot"></span><span class="trace-line"></span><span class="trace-dot"></span><span class="trace-line"></span><span class="trace-dot"></span>
+        </div>
+        <div class="signal-label signal-label-b">REASON · RESPOND · ACT</div>
+        <div class="hero-legend" aria-hidden="true">
+          <span><i class="legend-audio"></i> audio</span>
+          <span><i class="legend-reason"></i> reasoning</span>
+          <span><i class="legend-output"></i> output</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="metric-band" aria-label="Survey scope">
+      <div><b>4</b><span>reasoning paradigms</span></div>
+      <div><b>3</b><span>interaction settings</span></div>
+      <div><b>2023→26</b><span>interactive timeline</span></div>
+      <div><b>Open</b><span>community discussion</span></div>
+    </section>
+
+    <section class="timeline section-pad" id="timeline" aria-labelledby="timeline-title">
+      <div class="section-shell">
+        <div class="section-index">FIG. 1 / TIMELINE</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">From grounding to agents</p>
+            <h2 id="timeline-title">Explore the papers shaping audio reasoning.</h2>
+          </div>
+          <p>Hover or focus a node to reveal the full title, authors, month, and paper link. Filter by paradigm or search by model name.</p>
+        </div>
+
+        <div class="timeline-controls reveal">
+          <div class="filter-group" role="group" aria-label="Filter timeline by paradigm">
+            <button class="active" data-filter="all" type="button">All</button>
+            <button data-filter="a2t" type="button"><i></i>Audio-to-Text</button>
+            <button data-filter="a2s" type="button"><i></i>Audio-to-Speech</button>
+            <button data-filter="av" type="button"><i></i>Audio-Visual</button>
+            <button data-filter="agent" type="button"><i></i>Agentic</button>
+          </div>
+          <div class="timeline-year-jumps" role="group" aria-label="Jump to year">
+            <span>JUMP</span>
+            <button type="button" data-year-jump="2023">2023</button>
+            <button type="button" data-year-jump="2024">2024</button>
+            <button type="button" data-year-jump="2025">2025</button>
+            <button type="button" data-year-jump="2026">2026</button>
+          </div>
+          <label class="timeline-search">
+            <span class="sr-only">Search papers</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+            <input id="timelineSearch" type="search" placeholder="Search models or papers">
+          </label>
+        </div>
+      </div>
+
+      <div class="timeline-viewport reveal" id="timelineViewport" tabindex="0" aria-label="Interactive chronological paper timeline">
+        <div class="timeline-board" id="timelineBoard"></div>
+      </div>
+      <div class="timeline-hint"><span>← each column is one month · drag or shift-scroll →</span><b id="paperCount">0 papers shown</b></div>
+      <div class="paper-popover" id="paperPopover" role="dialog" aria-hidden="true">
+        <button type="button" class="popover-close" aria-label="Close paper details">×</button>
+        <div class="popover-category" id="popoverCategory"></div>
+        <h3 id="popoverTitle"></h3>
+        <p id="popoverAuthors"></p>
+        <div><span id="popoverDate"></span><a id="popoverLink" href="#" target="_blank" rel="noreferrer">Open paper ↗</a></div>
+      </div>
+    </section>
+
+    <section class="taxonomy section-pad" id="taxonomy" aria-labelledby="taxonomy-title">
+      <div class="section-shell">
+        <div class="section-index">FIG. 2 / TAXONOMY</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">One field, four analytical views</p>
+            <h2 id="taxonomy-title">Choose a paradigm to see what changes.</h2>
+          </div>
+          <p>The categories overlap in real systems. The distinction reveals which evidence enters the model, what it produces, and how reasoning interacts with time or tools.</p>
+        </div>
+
+        <div class="taxonomy-stage reveal">
+          <div class="taxonomy-tabs" role="tablist" aria-label="Audio reasoning paradigms">
+            <button class="taxonomy-tab active" role="tab" aria-selected="true" data-taxonomy="a2t"><span>01</span>Audio-to-Text<small>Grounded answer generation</small></button>
+            <button class="taxonomy-tab" role="tab" aria-selected="false" data-taxonomy="a2s"><span>02</span>Audio-to-Speech<small>Reasoning under latency</small></button>
+            <button class="taxonomy-tab" role="tab" aria-selected="false" data-taxonomy="av"><span>03</span>Audio-Visual<small>Joint evidence integration</small></button>
+            <button class="taxonomy-tab" role="tab" aria-selected="false" data-taxonomy="agent"><span>04</span>Agentic Audio<small>Reason, invoke, execute</small></button>
+          </div>
+          <div class="taxonomy-canvas" id="taxonomyCanvas" role="tabpanel" tabindex="0">
+            <div class="taxonomy-meta">
+              <p id="taxonomyNumber">PARADIGM 01</p>
+              <h3 id="taxonomyName">Audio-to-Text Reasoning</h3>
+              <p id="taxonomyDescription">Infer a textual answer from acoustic evidence while preserving cues that a transcript may discard.</p>
+            </div>
+            <div class="taxonomy-animation" id="taxonomyAnimation" aria-hidden="true"></div>
+            <div class="taxonomy-branches" id="taxonomyBranches"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paradigms paper-section chapter-formulations section-shell section-pad" id="formulations" aria-labelledby="formulations-title">
+      <div class="section-index">SECTION II</div>
+      <div class="section-heading reveal">
+        <div>
+          <p class="kicker">Common probabilistic view</p>
+          <h2 id="formulations-title">Notations and Problem Formulations</h2>
+        </div>
+        <p>The paper first defines one interface for the four paradigms. Context enters an AFM, an optional reasoning trajectory mediates generation, and the task determines the output.</p>
+      </div>
+
+      <div class="formulation-overview reveal">
+        <div class="formula-card">
+          <span>GENERAL FORMULATION</span>
+          <p>P(<b>O</b> | <b>C</b>)</p>
+          <i>or</i>
+          <p>P(<b>R</b>, <b>O</b> | <b>C</b>) = P(<b>R</b> | <b>C</b>) P(<b>O</b> | <b>C</b>, <b>R</b>)</p>
+        </div>
+        <div class="notation-grid" aria-label="Core notation">
+          <div><b>A</b><span>audio sequence</span></div>
+          <div><b>X</b><span>text instruction</span></div>
+          <div><b>V</b><span>visual sequence</span></div>
+          <div><b>C</b><span>multimodal context</span></div>
+          <div><b>R</b><span>reasoning trajectory</span></div>
+          <div><b>O</b><span>task output</span></div>
+        </div>
+      </div>
+
+      <div class="table-mount reveal" data-paper-table="notation"></div>
+
+      <div class="subsection-label reveal"><span>FIG. 3 / FOUR PARADIGMS</span><p>Token colors and model boundaries follow the survey figure.</p></div>
+
+      <div class="paradigm-grid">
+        <div class="fig3-legend reveal" aria-label="Token legend">
+          <span><i class="fig-token audio-token"></i>Input audio</span>
+          <span><i class="fig-token visual-token"></i>Input visual</span>
+          <span><i class="fig-token input-text-token"></i>Input text</span>
+          <span><i class="fig-token reason-token"></i>Reasoning</span>
+          <span><i class="fig-token speech-token"></i>Output speech</span>
+          <span><i class="fig-token output-text-token"></i>Output text</span>
+        </div>
+
+        <article class="paradigm-card paradigm-a2t reveal" data-paradigm-card="a2t">
+          <header><span>IV</span><h3>Audio-to-Text Reasoning</h3><button type="button" aria-label="Replay Audio-to-Text animation">↻</button></header>
+          <div class="paradigm-figure direct-figure" aria-label="Audio-to-Text token flow">
+            <div class="fig-token-row output-flow"><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="output-text-token"></i><i class="output-text-token"></i><i class="output-text-token"></i><i class="output-text-token"></i><i class="output-text-token"></i></div>
+            <span class="vertical-flow-arrow" aria-hidden="true">↑</span>
+            <div class="fig-model-box">Audio-to-Text Reasoning</div>
+            <span class="vertical-flow-arrow" aria-hidden="true">↑</span>
+            <div class="fig-input-stack"><div class="fig-token-row"><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i></div><div class="fig-token-row"><i class="input-text-token"></i><i class="input-text-token"></i><i class="input-text-token"></i><i class="input-text-token"></i><i class="input-text-token"></i></div></div>
+          </div>
+        </article>
+
+        <article class="paradigm-card paradigm-av reveal" data-paradigm-card="av">
+          <header><span>VI</span><h3>Audio-Visual Reasoning</h3><button type="button" aria-label="Replay Audio-Visual animation">↻</button></header>
+          <div class="paradigm-figure direct-figure av-direct-figure" aria-label="Audio-Visual token flow">
+            <div class="fig-token-row output-flow"><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="output-text-token"></i><i class="output-text-token"></i><i class="output-text-token"></i><i class="output-text-token"></i><i class="output-text-token"></i></div>
+            <span class="vertical-flow-arrow" aria-hidden="true">↑</span>
+            <div class="fig-model-box">Audio-Visual Reasoning</div>
+            <span class="vertical-flow-arrow" aria-hidden="true">↑</span>
+            <div class="fig-input-stack aligned-inputs"><div class="fig-token-row"><i class="visual-token"></i><i class="visual-token"></i><i class="visual-token"></i><i class="visual-token"></i><i class="visual-token"></i></div><div class="fig-token-row"><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i></div><div class="fig-token-row"><i class="input-text-token"></i><i class="input-text-token"></i><i class="input-text-token"></i><i class="input-text-token"></i><i class="input-text-token"></i></div><b>Temporal alignment</b></div>
+          </div>
+        </article>
+
+        <article class="paradigm-card paradigm-a2s paradigm-card-wide reveal" data-paradigm-card="a2s">
+          <header><span>V</span><h3>Audio-to-Speech Reasoning</h3><button type="button" aria-label="Replay Audio-to-Speech animation">↻</button></header>
+          <div class="paradigm-figure a2s-figure" aria-label="Three Audio-to-Speech reasoning paradigms">
+            <div class="a2s-variant sequential">
+              <div class="fig-time-axis"><span class="audio-window"></span><i></i><em>◷</em><i></i><span class="speech-window"></span><b>TIME →</b></div>
+              <div class="fig-token-row conversion-row"><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><strong>Token-to-Speech →</strong><i class="speech-token"></i><i class="speech-token"></i><i class="speech-token"></i><i class="speech-token"></i><i class="speech-token"></i></div>
+              <div class="fig-model-box"><span>(1)</span> Sequential Audio-to-Speech Reasoning <small>Listening → Thinking → Speaking</small></div>
+              <div class="fig-token-row input-audio-row"><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i></div>
+            </div>
+            <div class="a2s-variant listening">
+              <div class="fig-time-axis"><span class="audio-window"></span><i></i><em>◴</em><i></i><span class="speech-window"></span><b>TIME →</b></div>
+              <div class="fig-token-row conversion-row"><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="reason-token"></i><strong>Token-to-Speech →</strong><i class="speech-token"></i><i class="speech-token"></i><i class="speech-token"></i><i class="speech-token"></i></div>
+              <div class="fig-model-box"><span>(2)</span> Real-Time Audio-to-Speech Reasoning <small>Thinking while Listening</small></div>
+              <div class="fig-token-row input-audio-row"><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i></div>
+            </div>
+            <div class="a2s-variant speaking">
+              <div class="fig-time-axis"><span class="audio-window"></span><i></i><em>◴</em><i></i><span class="speech-window"></span><b>TIME →</b></div>
+              <div class="fig-token-row conversion-row interleaved"><i class="reason-token"></i><i class="reason-token"></i><i class="speech-token"></i><i class="speech-token"></i><i class="speech-token"></i><i class="reason-token"></i><i class="reason-token"></i><i class="speech-token"></i><i class="speech-token"></i><i class="reason-token"></i></div>
+              <div class="fig-model-box"><span>(3)</span> Real-Time Audio-to-Speech Reasoning <small>Thinking while Speaking</small></div>
+              <div class="fig-token-row input-audio-row"><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i><i class="audio-token"></i></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="paradigm-card paradigm-agent paradigm-card-wide reveal" data-paradigm-card="agent">
+          <header><span>VII</span><h3>Agentic Audio Reasoning</h3><button type="button" aria-label="Replay Agentic Audio animation">↻</button></header>
+          <div class="paradigm-figure agent-figure" aria-label="Two Agentic Audio Reasoning paradigms">
+            <div class="agent-paradigm predefined-agent">
+              <h4><span>(1)</span> Predefined Workflow Agents</h4>
+              <div class="controller-frame"><b>Central Controller</b><div class="subagent-frame"><strong>Sub-Agents</strong><div class="subagent-grid"><span>Perception</span><span>Verification</span><span>Planning</span><span>Execution</span></div><svg viewBox="0 0 360 190" aria-hidden="true"><path d="M55 95 C15 95 20 145 65 145"/><path d="M110 55 C150 5 250 5 286 55"/><path d="M286 140 C250 185 150 185 110 140"/><path d="M305 95 C350 95 345 145 300 145"/></svg></div></div>
+            </div>
+            <div class="agent-paradigm dynamic-tool-agent">
+              <h4><span>(2)</span> Dynamic Skill- and Tool-Calling Agents</h4>
+              <div class="tool-calling-map"><div class="planner-box">LLM<br>Planner</div><svg viewBox="0 0 430 280" aria-hidden="true"><path d="M135 140L260 35"/><path d="M135 140L260 88"/><path d="M135 140L260 140"/><path d="M135 140L260 192"/><path d="M135 140L260 245"/></svg><div class="tool-stack"><span>ASR</span><span>TTS</span><span>Web Search</span><span>Calendar</span><span>Email</span></div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section chapter-foundations section-pad" id="foundations" aria-labelledby="foundations-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION III</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Architectures + training</p>
+            <h2 id="foundations-title">Foundations for Audio Reasoning Models</h2>
+          </div>
+          <p>Reasoning-capable AFMs need architectures that connect continuous sound with language models, followed by training that aligns modalities and elicits reasoning.</p>
+        </div>
+
+        <div class="foundation-grid">
+          <article class="architecture-card reveal">
+            <div class="architecture-label"><span>01</span><b>Large Audio Language Models</b></div>
+            <div class="architecture-flow" aria-hidden="true">
+              <span class="flow-node audio">AUDIO</span><i>→</i><span class="flow-node">ENCODER</span><i>→</i><span class="flow-node">PROJECTOR</span><i>→</i><span class="flow-node core">LLM</span><i>→</i><span class="flow-node output">TEXT</span>
+            </div>
+            <p>A pretrained audio encoder extracts features, a projector maps them into the language embedding space, and an LLM generates text.</p>
+          </article>
+          <article class="architecture-card reveal">
+            <div class="architecture-label"><span>02</span><b>Spoken Language Models</b></div>
+            <div class="architecture-flow" aria-hidden="true">
+              <span class="flow-node audio">AUDIO</span><i>→</i><span class="flow-node core">SLM</span><i>→</i><span class="flow-node output">SPEECH</span>
+              <span class="flow-branch">discrete speech + text tokens</span>
+            </div>
+            <p>SLMs add speech generation. They either append a speech decoder or model speech and text tokens in one autoregressive space.</p>
+          </article>
+        </div>
+
+        <div class="training-panel reveal">
+          <div><span>STAGE 01</span><b>Cross-modal alignment</b><p>Connect acoustic patterns to linguistic meaning with ASR and captioning data.</p></div>
+          <i aria-hidden="true">→</i>
+          <div><span>STAGE 02</span><b>Supervised fine-tuning</b><p>Teach instructions, task behavior, and optional reasoning traces.</p></div>
+          <i aria-hidden="true">→</i>
+          <div><span>STAGE 03</span><b>Preference optimization / RL</b><p>Improve correctness, consistency, and acoustic faithfulness.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section chapter-a2t section-pad" id="audio-to-text" aria-labelledby="a2t-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION IV</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Grounded textual reasoning</p>
+            <h2 id="a2t-title">Audio-to-Text Reasoning</h2>
+          </div>
+          <p>These AFMs return text while reasoning over speech content, paralinguistic cues, environmental events, and temporal structure.</p>
+        </div>
+
+        <div class="method-grid method-grid-four">
+          <article class="method-card reveal">
+            <span>01 / INFERENCE</span>
+            <h3>Prompting and Grounded Decoding</h3>
+            <p>Audio-CoT elicits intermediate reasoning. SAR-LM exposes symbolic audio descriptions, while SKAD uses acoustic sketches and contrastive decoding to resist language-prior drift.</p>
+            <div class="paper-chips"><i>Audio-CoT</i><i>SAR-LM</i><i>SKAD</i></div>
+          </article>
+          <article class="method-card reveal">
+            <span>02 / SUPERVISION</span>
+            <h3>Reasoning and Perception Alignment</h3>
+            <p>SFT learns from plans, captions, summaries, or structured chains. Its value depends on whether intermediate annotations preserve accurate acoustic evidence.</p>
+            <div class="paper-chips"><i>Audio-Reasoner</i><i>AF Sound-CoT</i><i>Echo</i></div>
+          </article>
+          <article class="method-card reveal">
+            <span>03 / OPTIMIZATION</span>
+            <h3>Adaptive and Audio-Grounded RL</h3>
+            <p>RL methods adapt reasoning to problem difficulty, filter for audio dependence, and reward perceptual evidence rather than final-answer correctness alone.</p>
+            <div class="paper-chips"><i>SARI</i><i>AudioMCQ</i><i>AudioRubrics</i></div>
+          </article>
+          <article class="method-card method-card-question reveal">
+            <span>04 / CONTROL</span>
+            <h3>Is CoT Really Helping?</h3>
+            <p>Longer traces can amplify a bad perception or drift toward text priors. CoT helps only when the AFM first extracts and then preserves acoustic evidence.</p>
+            <div class="paper-chips"><i>R1-AQA</i><i>Omni-R1</i><i>Audio-ReaPer</i></div>
+          </article>
+        </div>
+
+        <div class="data-pipeline reveal" aria-label="Audio-to-Text data construction pipeline">
+          <div><span>A</span><b>Source corpora</b><small>AudioSet · AudioCaps · Clotho · AVQA</small></div>
+          <i>→</i>
+          <div><span>B</span><b>QA construction</b><small>reuse annotations or synthesize questions</small></div>
+          <i>→</i>
+          <div><span>C</span><b>Reasoning chains</b><small>LLM · LLM–ALM · self-distillation · audio features</small></div>
+          <i>→</i>
+          <div><span>D</span><b>Grounding control</b><small>filter, verify, or reward acoustic evidence</small></div>
+        </div>
+
+        <div class="table-mount reveal" data-paper-table="rewards"></div>
+        <div class="table-mount reveal" data-paper-table="a2tData"></div>
+      </div>
+    </section>
+
+    <section class="paper-section chapter-a2s section-pad" id="audio-to-speech" aria-labelledby="a2s-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION V</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Reasoning under latency</p>
+            <h2 id="a2s-title">Audio-to-Speech Reasoning</h2>
+          </div>
+          <p>Speech-generating AFMs must preserve reasoning quality while controlling when the first audio begins and how reasoning overlaps with interaction.</p>
+        </div>
+
+        <div class="speech-modes">
+          <article class="speech-mode sequential-mode reveal">
+            <div class="mode-top"><span>V-A</span><h3>Sequential Audio-to-Speech</h3></div>
+            <div class="speech-track" aria-hidden="true"><b>LISTEN</b><i></i><b>REASON</b><i></i><b>SPEAK</b></div>
+            <p>The model finishes perception and optional text reasoning before synthesis. This preserves a coherent answer but adds conversational delay.</p>
+            <div class="paper-chips"><i>Qwen3-Omni</i><i>Step-Audio 2</i><i>LLaMA-Omni 2</i><i>VITA-Audio</i></div>
+          </article>
+          <article class="speech-mode realtime-mode reveal">
+            <div class="mode-top"><span>V-B</span><h3>Real-Time Audio-to-Speech</h3></div>
+            <div class="speech-track overlapping" aria-hidden="true"><b>LISTEN</b><i></i><b>THINK</b><i></i><b>SPEAK</b></div>
+            <p>The model processes chunks incrementally. Reasoning can occupy the listening window, the playback window, or a parallel stream.</p>
+            <div class="paper-chips"><i>SHANKS</i><i>STITCH</i><i>InterRS</i><i>RUBATO</i></div>
+          </article>
+        </div>
+
+        <div class="streaming-grid">
+          <article class="streaming-card reveal"><span>THINKING WHILE LISTENING</span><h3>Incremental + retrospective</h3><p>Methods vary in reasoning format, trigger condition, update granularity, and whether later speech can revise an earlier state.</p><small>SHANKS · Chronological Thinking · FLAIR · RetroThinker</small></article>
+          <article class="streaming-card reveal"><span>THINKING WHILE SPEAKING</span><h3>Interleaving + consistency</h3><p>Methods vary in structural organization, timing control, and whether each spoken segment remains supported by its thought.</p><small>STITCH · Mini-Omni-Reasoner · InterRS · Dual-Reasoner</small></article>
+          <article class="streaming-card reveal"><span>TRAINING + DISCUSSION</span><h3>Data scarcity + latency</h3><p>Most work converts text tasks to speech. Evaluation must jointly report reasoning quality, Time-To-First-Audio, continuity, and recovery.</p><small>MPS · Think-Aloud CoT · ReEmpathy · RUBATO</small></article>
+        </div>
+
+        <div class="table-mount reveal" data-paper-table="realtimeData"></div>
+      </div>
+    </section>
+
+    <section class="paper-section chapter-av section-pad" id="audio-visual" aria-labelledby="av-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION VI</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Joint multimodal evidence</p>
+            <h2 id="av-title">Audio-Visual Reasoning</h2>
+          </div>
+          <p>Audio-visual AFMs must align sound with vision, resolve conflicts, and show that both streams contribute to the answer.</p>
+        </div>
+
+        <div class="av-stage reveal" aria-label="Audio-visual evidence integration">
+          <div class="av-evidence audio-evidence"><span>audio</span><b>voice · event · timing</b></div>
+          <div class="av-core"><span>ALIGN</span><b>JOINT<br>EVIDENCE</b><small>reason</small></div>
+          <div class="av-evidence visual-evidence"><span>visual</span><b>objects · motion · scene</b></div>
+        </div>
+
+        <div class="method-grid method-grid-three">
+          <article class="method-card reveal"><span>01</span><h3>Joint Audio-Visual Evidence Learning</h3><p>Mixed-modality alignment and instruction tuning teach omni-modal backbones to combine evidence in one context.</p><div class="paper-chips"><i>VITA</i><i>Qwen2.5-Omni</i><i>Baichuan-Omni</i></div></article>
+          <article class="method-card reveal"><span>02</span><h3>Temporally Grounded Curriculum</h3><p>Curricula grow context length and task difficulty while timestamp supervision anchors claims to long audio-visual streams.</p><div class="paper-chips"><i>AV-Flamingo</i><i>LongCat-Flash-Omni</i></div></article>
+          <article class="method-card reveal"><span>03</span><h3>Modality-Factored Reasoning</h3><p>Audio-only and visual-only evidence are modeled before their interaction is distilled into a joint reasoner.</p><div class="paper-chips"><i>Qwen3-Omni</i><i>OmniReasoning</i></div></article>
+        </div>
+
+        <div class="benchmark-strip reveal"><span>SECTION VI BENCHMARKS</span><b>Daily-Omni</b><b>WorldSense</b><b>AVUT</b><b>AV-SpeakerBench</b><b>Omni-Cloze</b><b>OmniReasoningBench</b></div>
+
+        <div class="table-mount reveal" data-paper-table="avMethods"></div>
+      </div>
+    </section>
+
+    <section class="paper-section chapter-agent section-pad" id="agentic" aria-labelledby="agentic-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION VII</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Plan · invoke · observe · recover</p>
+            <h2 id="agentic-title">Agentic Audio Reasoning</h2>
+          </div>
+          <p>Agentic AFMs extend acoustic perception with task decomposition, reflection, tool use, adaptation, and explicit execution.</p>
+        </div>
+
+        <div class="agent-taxonomy">
+          <article class="agent-class reveal">
+            <span>VII-B / FIXED CONTROL</span><h3>Predefined Workflow Agents</h3>
+            <p>Perception, planning, execution, and verification follow a pipeline designed before inference. It is inspectable but harder to extend.</p>
+            <div class="mini-workflow" aria-hidden="true"><b>PERCEIVE</b><i>→</i><b>PLAN</b><i>→</i><b>EXECUTE</b><i>→</i><b>VERIFY</b></div>
+            <small>Speech-Hands · AudioGenie-Reasoner · Daily-Omni Agent · LTS-VoiceAgent</small>
+          </article>
+          <article class="agent-class dynamic-agent reveal">
+            <span>VII-B / RUNTIME CONTROL</span><h3>Dynamic Skill- and Tool-Calling Agents</h3>
+            <p>A planner selects skills at runtime, reads observations, and decides the next step. Flexibility introduces failures in tools, arguments, evidence use, and execution.</p>
+            <div class="mini-workflow branching" aria-hidden="true"><b>AFM</b><i>↗</i><b>SKILL</b><i>↔</i><b>TOOL</b><i>↘</i><b>ACTION</b></div>
+            <small>AURA · Audio-Maestro · Thinking with Sound · SpeechAgent-R · VoxMind</small>
+          </article>
+        </div>
+
+        <div class="pattern-strip reveal" aria-label="Agentic design patterns">
+          <span>DESIGN PATTERNS</span>
+          <b>Correction</b><b>Iterative refinement</b><b>Reactive tool use</b><b>Proactive streaming</b><b>Learned orchestration</b><b>Asynchronous agents</b>
+        </div>
+
+        <div class="table-mount reveal" data-paper-table="agentTradeoffs"></div>
+      </div>
+    </section>
+
+    <section class="benchmarks paper-section section-pad" id="evaluations" aria-labelledby="evaluations-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION VIII</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Capabilities · metrics · protocols</p>
+            <h2 id="evaluations-title">Evaluations</h2>
+          </div>
+          <p>Reasoning-capable AFMs require more than answer accuracy. Evaluation should test grounding, cross-modal alignment, streaming behavior, speech quality, and reliable execution.</p>
+        </div>
+
+        <div class="evaluation-grid reveal">
+          <article><span>VIII-A</span><h3>Audio-to-Text</h3><p>Separate content-based reasoning from acoustic-based reasoning, then use controlled changes to test whether an answer truly depends on audio.</p></article>
+          <article><span>VIII-B</span><h3>Audio-to-Speech</h3><p>Measure dialogue ability, speech quality, response alignment, real-time interaction, and subjective conversational quality.</p></article>
+          <article><span>CROSS-CUTTING</span><h3>Grounding + execution</h3><p>Audio-visual and agentic tests should isolate modality contributions and report tool selection, arguments, evidence use, and task completion.</p></article>
+        </div>
+        <div class="metric-strip reveal"><b>Accuracy / F1 / mAP</b><b>BLEU / ROUGE / METEOR</b><b>Human or LLM judge</b><b>TTFA / real-time factor</b><b>MOS</b><b>Task completion</b></div>
+
+        <div class="subsection-label reveal"><span>BENCHMARK EXPLORER</span><p>Compare domain, audio type, evaluation format, scale, and task coverage.</p></div>
+        <div class="benchmark-layout reveal">
+          <div class="benchmark-list" id="benchmarkList" role="listbox" aria-label="Audio reasoning benchmarks"></div>
+          <article class="benchmark-detail" id="benchmarkDetail" aria-live="polite">
+            <div class="benchmark-radar" aria-hidden="true">
+              <svg viewBox="0 0 240 240">
+                <circle cx="120" cy="120" r="92"/><circle cx="120" cy="120" r="61"/><circle cx="120" cy="120" r="31"/>
+                <path d="M120 28V212M28 120H212M55 55L185 185M185 55L55 185"/>
+                <polygon id="benchmarkShape" points="120,46 186,82 175,170 86,186 48,114"/>
+              </svg>
+              <span>domain</span><span>scale</span><span>openness</span><span>modalities</span>
+            </div>
+            <div class="benchmark-copy">
+              <p id="benchmarkDomain">GENERAL AUDIO REASONING</p>
+              <h3 id="benchmarkName">MMAU</h3>
+              <p id="benchmarkDescription">Speech, sound, and music reasoning across a broad task set.</p>
+              <dl>
+                <div><dt>Audio</dt><dd id="benchmarkAudio">Speech · Sound · Music</dd></div>
+                <div><dt>Evaluation</dt><dd id="benchmarkEval">Closed</dd></div>
+                <div><dt>Size</dt><dd id="benchmarkSize">10K</dd></div>
+                <div><dt>Tasks</dt><dd id="benchmarkTasks">27</dd></div>
+              </dl>
+              <a id="benchmarkLink" href="#" target="_blank" rel="noreferrer">View benchmark paper ↗</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="table-mount reveal" data-paper-table="benchmarkOverview"></div>
+      </div>
+    </section>
+
+    <section class="paper-section chapter-challenges section-pad" id="challenges" aria-labelledby="challenges-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION IX</div>
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Open problems</p>
+            <h2 id="challenges-title">Challenges and Future Directions</h2>
+          </div>
+          <p>The paper closes the technical survey with six connected gaps. Each asks whether future AFMs preserve acoustic evidence while scaling reasoning, interaction, and action.</p>
+        </div>
+
+        <div class="challenge-grid">
+          <article class="challenge-card reveal"><span>01</span><h3>Reliable synthesized reasoning data</h3><p>Generated traces must be tied to timing, speaker identity, prosody, and other verifiable acoustic evidence.</p></article>
+          <article class="challenge-card reveal"><span>02</span><h3>Grounding failures and shortcuts</h3><p>Better perception is not enough. AFMs must also preserve acoustic evidence throughout long decoding.</p></article>
+          <article class="challenge-card reveal"><span>03</span><h3>Accuracy versus latency</h3><p>Optimize reasoning jointly with Time-To-First-Audio, continuity, interruption recovery, and speech consistency.</p></article>
+          <article class="challenge-card reveal"><span>04</span><h3>Long-context audio reasoning</h3><p>Retrieve sparse evidence across meetings, podcasts, and long videos without breaking temporal or cross-modal alignment.</p></article>
+          <article class="challenge-card reveal"><span>05</span><h3>Causal grounding and agent reliability</h3><p>Intervene on audio, speakers, time, modalities, and tools, then measure every stage through final task completion.</p></article>
+          <article class="challenge-card reveal"><span>06</span><h3>Reasoning-oriented pre-training</h3><p>Move grounding objectives earlier so later SFT or RL does not need to recover evidence discarded by the backbone.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section conclusion-section section-pad" id="conclusion" aria-labelledby="conclusion-title">
+      <div class="section-shell">
+        <div class="section-index">SECTION X</div>
+        <div class="conclusion-grid reveal">
+          <div>
+            <p class="kicker">Conclusion</p>
+            <h2 id="conclusion-title">Ground the evidence. Coordinate the reasoning. Complete the action.</h2>
+          </div>
+          <div class="conclusion-copy">
+            <p>This survey unifies four audio reasoning paradigms through their formulations, foundations, training, data, and evaluation.</p>
+            <p>Across them, effective reasoning depends on extracting acoustic evidence and preserving it from perception to response or execution.</p>
+          </div>
+        </div>
+        <div class="conclusion-pillars reveal">
+          <div><span>ROBUST</span><b>Accurate perception</b></div>
+          <div><span>RESPONSIVE</span><b>Efficient interaction</b></div>
+          <div><span>RELIABLE</span><b>Grounded execution</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-figures section-shell section-pad" aria-labelledby="figures-title">
+      <div class="section-index">VISUAL INDEX</div>
+      <div class="section-heading reveal">
+        <div>
+          <p class="kicker">Original visual index</p>
+          <h2 id="figures-title">See the static figures behind the interactions.</h2>
+        </div>
+        <p>The website preserves the paper's visual language, then turns its maps into responsive, explorable diagrams.</p>
+      </div>
+      <div class="figure-gallery">
+        <button class="figure-card reveal" type="button" data-figure="assets/paper/timeline.png" data-caption="Timeline of representative audio reasoning models">
+          <img src="assets/paper/timeline.png" alt="Static timeline from the survey paper">
+          <span><b>FIG. 1</b> Timeline <i>Open ↗</i></span>
+        </button>
+        <button class="figure-card reveal" type="button" data-figure="assets/paper/taxonomy.png" data-caption="Compact taxonomy of audio reasoning">
+          <img src="assets/paper/taxonomy.png" alt="Static taxonomy from the survey paper">
+          <span><b>FIG. 2</b> Taxonomy <i>Open ↗</i></span>
+        </button>
+        <button class="figure-card figure-card-wide reveal" type="button" data-figure="assets/paper/paradigms.png" data-caption="Overview of major audio reasoning paradigms">
+          <img src="assets/paper/paradigms.png" alt="Static overview of audio reasoning paradigms from the survey paper">
+          <span><b>FIG. 3</b> Paradigms <i>Open ↗</i></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="community section-pad" id="community" aria-labelledby="community-title">
+      <div class="community-glow" aria-hidden="true"></div>
+      <div class="section-shell">
+        <div class="section-index">COMMUNITY</div>
+        <div class="community-heading reveal">
+          <div>
+            <p class="kicker">Open research discussion</p>
+            <h2 id="community-title">Ask the authors. Challenge the taxonomy. Suggest a paper.</h2>
+          </div>
+          <p>Questions and replies are stored in GitHub Discussions, so every visitor can read the conversation and contribute with a GitHub account.</p>
+        </div>
+        <div class="discussion-shell reveal">
+          <div class="discussion-topline">
+            <div><span class="online-dot"></span><b>PUBLIC THREAD</b><small>Powered by GitHub Discussions</small></div>
+            <a id="discussionLink" href="#" target="_blank" rel="noreferrer">Open all discussions ↗</a>
+          </div>
+          <div id="giscusMount" class="giscus-mount"></div>
+          <div id="discussionSetup" class="discussion-setup">
+            <div class="setup-icon" aria-hidden="true">?</div>
+            <h3>Connect this page to the project repository</h3>
+            <p>Add the repository ID and Q&amp;A category ID to <code>config.js</code>. The public discussion thread will then load here automatically.</p>
+            <div><a href="https://giscus.app" target="_blank" rel="noreferrer">Generate Giscus settings ↗</a><button id="copyConfigPath" type="button">Copy config path</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="citation section-shell section-pad" id="citation" aria-labelledby="citation-title">
+      <div class="section-index">CITE</div>
+      <div class="citation-grid reveal">
+        <div><p class="kicker">Use this survey</p><h2 id="citation-title">Build on the map.</h2><p>If this project helps your research, please cite the survey. The bibliography entry can be updated in one place when publication metadata becomes available.</p></div>
+        <div class="code-card">
+          <div><span>BIBTEX</span><button id="copyBibtex" type="button">Copy</button></div>
+          <pre id="bibtexBlock"><code>@article{guo2026audio,
+  title   = {A Survey of Audio Reasoning in Multimodal Foundation Models},
+  author  = {Zhihan Guo and Wenqian Cui and Guan-Ting Lin and others},
+  year    = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-shell footer-grid">
+      <div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>AUDIO REASONING <b>/ SURVEY</b></span></a><p>Robust perception. Grounded reasoning. Responsive interaction.</p></div>
+      <div><b>Explore</b><a href="#timeline">Timeline</a><a href="#taxonomy">Taxonomy</a><a href="#formulations">Paper sections</a><a href="#evaluations">Evaluations</a></div>
+      <div><b>Participate</b><a href="#community">Ask a question</a><a href="#citation">Cite the survey</a><a id="footerGithub" href="#community">GitHub repository</a></div>
+      <div class="footer-note"><span>Last site update</span><b id="lastUpdated">NOV 2026</b></div>
+    </div>
+  </footer>
+
+  <dialog class="author-dialog" id="authorDialog">
+    <button class="dialog-close" type="button" aria-label="Close authors">×</button>
+    <p class="kicker">Authors</p>
+    <h2>A cross-institutional view of audio reasoning.</h2>
+    <div class="author-list">
+      <span>Zhihan Guo*</span><span>Wenqian Cui*</span><span>Guan-Ting Lin</span><span>Daxin Tan</span><span>Jingyao Li</span><span>Qiyong Zheng</span><span>Dingdong Wang</span><span>Jing Xiong</span><span>Han Shi</span><span>Jiaya Jia</span><span>Irwin King</span>
+    </div>
+    <p class="author-affiliations">The Chinese University of Hong Kong · National Taiwan University · The University of Hong Kong · The Hong Kong University of Science and Technology</p>
+    <small>* Equal contribution</small>
+  </dialog>
+
+  <dialog class="figure-dialog" id="figureDialog">
+    <button class="dialog-close" type="button" aria-label="Close figure">×</button>
+    <img id="figureDialogImage" src="" alt="">
+    <p id="figureDialogCaption"></p>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
